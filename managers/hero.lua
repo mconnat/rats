@@ -2,6 +2,7 @@ local Character = require("classes.character")
 local Collisions = require("libs.collisions")
 local WeaponManager = require("managers.weapon")
 
+
 local Hero = {}
 Hero = Character:new(0, 0)
 
@@ -32,7 +33,7 @@ function Hero:update(dt, enemies)
     -- Get angle of the character according to mouse position
     self.angle = math.atan2(mouseY - self.y, mouseX - self.x)
 
-    -- Manage keyboard deplacement inputs
+    -- Manage keyboard movement inputs
     if love.keyboard.isDown("d") or love.keyboard.isDown("right") then
         self.x = self.x + (self.speed * dt)
     end
@@ -59,7 +60,7 @@ function Hero:update(dt, enemies)
     end
 
     -- Check collision with enemies
-    -- self:checkCollision(enemies)
+    self:checkCollision(enemies)
 
     -- update Hero's weapon
     if self.weapon ~= nil then
@@ -87,8 +88,8 @@ function Hero:update(dt, enemies)
 end
 
 function Hero:checkCollision(enemies)
-    for i = 1, #enemies do
-        if Collisions.CircleCollision(self, enemies[i]) then
+    for _, enemy in ipairs(enemies) do
+        if Collisions.CircleCollision(self, enemy) then
             self:onHit(1)
         end
     end

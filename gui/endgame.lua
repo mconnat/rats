@@ -27,8 +27,8 @@ EndGameGUI.Title = GUI.newText(
 )
 
 EndGameGUI.LoosePanel = GUI.newPanel(
-    love.graphics.getWidth() / 2 - 50,
-    love.graphics.getHeight() / 2 - 100,
+    love.graphics.getWidth() / 2 - 125,
+    love.graphics.getHeight() / 2 - 130,
     500,
     400
 )
@@ -37,8 +37,8 @@ local looseImg = love.graphics.newImage("assets/sprites/large/boss.png")
 EndGameGUI.LoosePanel:setImage(looseImg, 2)
 
 EndGameGUI.WinPanel = GUI.newPanel(
-    love.graphics.getWidth() / 2 - 50,
-    love.graphics.getHeight() / 2 - 100,
+    love.graphics.getWidth() / 2 - 60,
+    love.graphics.getHeight() / 2 - 70,
     500,
     400
 )

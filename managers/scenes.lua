@@ -1,30 +1,21 @@
 local SceneManager = {}
 SceneManager.scenes = {}
 SceneManager.currentScene = nil
-SceneManager.lastScene = nil
+
 
 function SceneManager:addState(name, state)
     self.scenes[name] = state
 end
 
-function SceneManager:getCurrentScene()
-    return self.currentScene
-end
-
-function SceneManager:getLastScene()
-    return self.lastScene
-end
-
-function SceneManager:switchTo(name)
+function SceneManager:switchTo(name, lastState)
     if self.currentScene and self.currentScene.exit then
         self.currentScene:exit()
     end
 
-    self.lastScene = self.currentScene
     self.currentScene = self.scenes[name]
 
     if self.currentScene and self.currentScene.enter then
-        self.currentScene:enter()
+        self.currentScene:enter(lastState)
     end
 end
 

@@ -16,7 +16,8 @@ end
 function EnemyManager:spawnEnemy(selectedBunker)
     table.insert(self.enemies, Enemy:new(
         self.bunkers[selectedBunker].x + self.bunkers[selectedBunker].image:getWidth(),
-        self.bunkers[selectedBunker].y + (self.bunkers[selectedBunker].image:getHeight() / 2)
+        self.bunkers[selectedBunker].y + (self.bunkers[selectedBunker].image:getHeight() / 2),
+        selectedBunker
     )
     )
     self.bunkers[selectedBunker].enemiesCount = self.bunkers[selectedBunker].enemiesCount + 1
@@ -26,7 +27,10 @@ function EnemyManager:spawnBosses()
     for i = 1, self.bossSpawnCount do
         table.insert(self.enemies, Boss:new(
             self.bunkers[i].x + self.bunkers[i].image:getWidth(),
-            self.bunkers[i].y + (self.bunkers[i].image:getHeight() / 2)))
+            self.bunkers[i].y + (self.bunkers[i].image:getHeight() / 2),
+            i
+        )
+        )
     end
 end
 

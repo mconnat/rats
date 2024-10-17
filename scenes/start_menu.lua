@@ -1,23 +1,10 @@
 local GodMod = require("libs.godmod")
 local StartMenuGUI = require("gui.start_menu")
-local SceneManager = require("managers.scenes")
 local StartMenu = {}
 
 
-function StartMenu:enter()
-    -- Do nothing
-end
-
-function StartMenu:exit()
-    -- Do nothing
-end
-
 function StartMenu:update(dt)
     StartMenuGUI:update(dt)
-end
-
-function StartMenu:mousepressed(mouseX, mouseY, mouseButton)
-    -- Do nothing
 end
 
 function StartMenu:keypressed(key, scancode, isrepeat)

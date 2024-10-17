@@ -48,8 +48,10 @@ ResumeButton:setColor({ r = .8, g = .8, b = .8, a = 1 })
 local start = love.graphics.newImage("assets/sprites/large/start.png")
 ResumeButton:setImages(start, start, start)
 ResumeButton:setEvent("hover", onPanelHover)
-ResumeButton:setEvent("pressed", function()
-    SceneManager:switchTo("Gameplay")
+ResumeButton:setEvent("pressed", function(pstate)
+    if pstate == "end" then
+        SceneManager:switchTo("Gameplay", "Pause")
+    end
 end)
 
 PauseGUI.group:addElement(MainPanel)

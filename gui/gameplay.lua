@@ -9,7 +9,7 @@ local MainPanel = GUI.newPanel(10, 15, love.graphics.getWidth() - 20, 65)
 
 MainPanel:setColor({ r = .8, g = .8, b = .8, a = 1 })
 
-GameplayGUI.ScorePanel = GUI.newText(
+GameplayGUI.TimerPanel = GUI.newText(
     50,
     30,
     100,
@@ -48,7 +48,7 @@ GameplayGUI.BonusCount = GUI.newText(love.graphics.getWidth() / 2 + 50 + 50,
     { r = 0, g = 0, b = 0, a = 1 }
 )
 
-local PauseButton = GUI.newButton(love.graphics.getWidth() - 120,
+GameplayGUI.PauseButton = GUI.newButton(love.graphics.getWidth() - 120,
     15,
     45,
     50,
@@ -57,21 +57,23 @@ local PauseButton = GUI.newButton(love.graphics.getWidth() - 120,
     { r = 0, g = 0, b = 0, a = 1 }
 )
 
-PauseButton:setColor({ r = .8, g = .8, b = .8, a = 1 })
+GameplayGUI.PauseButton:setColor({ r = .8, g = .8, b = .8, a = 1 })
 local pauseImg = love.graphics.newImage("assets/sprites/large/pause.png")
-PauseButton:setImages(pauseImg, pauseImg, pauseImg)
-PauseButton:setEvent("pressed", function()
-    SceneManager:switchTo("Pause")
+GameplayGUI.PauseButton:setImages(pauseImg, pauseImg, pauseImg)
+GameplayGUI.PauseButton:setEvent("pressed", function(pstate)
+    if pstate == "end" then
+        SceneManager:switchTo("Pause")
+    end
 end)
 
 
 GameplayGUI.group:addElement(MainPanel)
-GameplayGUI.group:addElement(GameplayGUI.ScorePanel)
+GameplayGUI.group:addElement(GameplayGUI.TimerPanel)
 GameplayGUI.group:addElement(SelectedWeaponSquare)
 GameplayGUI.group:addElement(GameplayGUI.SelectedWeapon)
 GameplayGUI.group:addElement(BonusSquare)
 GameplayGUI.group:addElement(BonusLogo)
 GameplayGUI.group:addElement(GameplayGUI.BonusCount)
-GameplayGUI.group:addElement(PauseButton)
+GameplayGUI.group:addElement(GameplayGUI.PauseButton)
 
 return GameplayGUI

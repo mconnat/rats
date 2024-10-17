@@ -29,7 +29,8 @@ function Character:draw()
     end
     -- Red blink when the character is hit
     if self.hit then
-        love.graphics.setColor(.7, 0, 0, 0.8)
+        love.math.colorFromBytes(212, 131, 131)
+        love.graphics.setColor(love.math.colorFromBytes(212, 131, 131))
     end
     love.graphics.draw(
         self.image,
@@ -41,13 +42,29 @@ function Character:draw()
         (self.image:getWidth() / 2),
         (self.image:getHeight() / 2)
     )
-    love.graphics.pop()
+
     if self.weapon ~= nil then
         self.weapon:draw()
     end
     if self.currentHealthPoint ~= self.maxHealthPoint then
         self:DrawHealthBar()
     end
+
+
+    if self.state and CONFIG.debug then
+        love.graphics.setColor(0, 0, 0, 1)
+        love.graphics.print(self.state, self.x, self.y, 0, 0.5)
+    end
+
+    if self.carryingGrocery then
+        love.graphics.setColor(1, 1, 1, 1)
+        if self.carryingGroceryType == "Pasta" then
+            love.graphics.draw(self.imagePasta, self.x, self.y, 0, 0.2, 0.2)
+        else
+            love.graphics.draw(self.imageToiletPaper, self.x, self.y, 0, 0.2, 0.2)
+        end
+    end
+    love.graphics.pop()
 end
 
 function Character:DrawHealthBar()

@@ -9,7 +9,7 @@ local Title = GUI.newText(
     40,
     love.graphics.getWidth() - 10,
     50,
-    "Yet another survivor game",
+    "Rage against the Survivalists",
     love.graphics.newFont("assets/fonts/Harvest Yard.otf", 60),
     "center",
     nil,
@@ -66,8 +66,8 @@ local LegendPanelData = {
 }
 
 local startButton = GUI.newButton(500,
-    Title.y + 200 + 100,
-    200,
+    Title.y + 370,
+    270,
     100,
     "Start",
     love.graphics.newFont("assets/fonts/Harvest Yard.otf", 50),
@@ -75,8 +75,8 @@ local startButton = GUI.newButton(500,
 )
 
 local exitButton = GUI.newButton(500,
-    Title.y + 200 + 200,
-    200,
+    Title.y + 470,
+    270,
     100,
     "Exit",
     love.graphics.newFont("assets/fonts/Harvest Yard.otf", 50),
@@ -86,7 +86,7 @@ local exitButton = GUI.newButton(500,
 
 local function initLegendGroup()
     local LegendGroup = GUI.newGroup()
-    local LegendPanel = GUI.newPanel(860, Title.y + 200, 400, 600)
+    local LegendPanel = GUI.newPanel(1000, Title.y + 200, 400, 600)
     LegendGroup:addElement(LegendPanel)
     for i = 1, 6 do
         local tmpY = (i - 1) * 100
