@@ -4,7 +4,7 @@ Playable version in browser [here](https://sereal.itch.io/rats)
 
 Vous devez défendre les provisions contre les survivalistes.
 
-Déplacez-vous avec ZQSD / WASD / :arrow_up: :arrow_left: :arrow_down: :arrow_right:
+Déplacez-vous avec ZQSD / WASD / fléches directionels
 
 Pour gagner, vous devez protéger les provisions jusqu'à l'arrivée des renforts (120 secondes).
 
@@ -45,7 +45,7 @@ La machine à états est définie dans la classe `Enemy`, qui doit collecter les
 
 You have to defend the groceries against the survivalists.
 
-Move with ZQSD / WASD / :arrow_up: :arrow_left: :arrow_down: :arrow_right:
+Move with ZQSD / WASD / directional arrows
 
 To win, you have to protect the groceries until the backup arrives (120 seconds).
 
