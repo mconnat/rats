@@ -1,3 +1,5 @@
+Playable version in browser [here](https://sereal.itch.io/rats)
+
 # Comment jouer
 
 Vous devez défendre les provisions contre les survivalistes.
